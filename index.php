@@ -1,6 +1,5 @@
 <?php
 
-
 $s = DIRECTORY_SEPARATOR;
 
 $file_path = dirname(realpath(__FILE__));
@@ -25,7 +24,6 @@ $phantomjs_script = $javascript_path . $s . "chart.js";
 $highcharts_version = (isset($config['highcharts']['version'])) ? $config['highcharts']['version'] : $bundled_highcharts_version;
 $jquery_version = (isset($config['jquery']['version'])) ? $config['jquery']['version'] : $bundled_jquery_version;
 
-
 function serverify_chart_data(&$chart_data) {
   /*
   options.chart.renderTo = 'container';
@@ -42,7 +40,6 @@ function serverify_chart_data(&$chart_data) {
   }
 }
 
-
 function clean_output(&$output) {
   $start = stripos($output, "<svg");
   $end = stripos($output, "</svg>");
@@ -52,7 +49,6 @@ function clean_output(&$output) {
     $output = "";
   }
 }
-
 
 $chart_data = $_REQUEST['chart'];
 $output_format = (isset($_REQUEST['format'])) ? strtolower($_REQUEST['format']) : "svg";
